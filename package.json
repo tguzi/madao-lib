@@ -1,0 +1,102 @@
+{
+  "name": "tguzi-madao-lib",
+  "description": "日常中常用的工具/组件/包",
+  "cjs": "dist/index.js",
+  "es": "es/index.js",
+  "scripts": {
+    "docz": "docz dev --typescript",
+    "build:docz": "docz build --dest ./dist",
+    "test": "jest --coverage --verbose -u",
+    "deploy": "lerna publish",
+    "build": "lerna exec -- rollup --config ../../rollup.config.js",
+    "tsc-build": "lerna exec -- rollup --config ../../rollup.config.js tsc",
+    "start": "lerna exec -- rollup --config ../../rollup.config.js -w",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx packages",
+    "lint-fix": "eslint --fix --ext .js,.jsx,.ts,.tsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged & jest -u"
+    }
+  },
+  "lint-staged": {
+    "*.{.ts,.js,.tsx}": [
+      "eslint"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tguzi/madao-lib.git"
+  },
+  "author": "tguzi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tguzi/madao-lib.git/issues"
+  },
+  "homepage": "https://github.com/tguzi/madao-lib.git#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
+    "@babel/plugin-transform-typescript": "^7.9.4",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@storybook/addon-essentials": "^5.3.18",
+    "@storybook/cli": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^25.2.3",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^13.13.1",
+    "@types/react": "^16.9.34",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
+    "babel-jest": "^25.4.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-react": "^6.24.1",
+    "core-decorators": "^0.20.0",
+    "docz": "^2.3.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "husky": "^4.2.5",
+    "jest": "^25.4.0",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.2.0",
+    "lodash": "^4.17.20",
+    "mockjs": "^1.1.0",
+    "react": "^16.13.1",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.6.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "ts-jest": "^25.4.0",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3",
+    "uglify": "^0.1.5"
+  },
+  "output": [
+    "dist/**"
+  ]
+}

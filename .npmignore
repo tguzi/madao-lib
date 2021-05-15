@@ -1,0 +1,5 @@
+lib/
+__tests__
+.docz
+coverage
+node_modules

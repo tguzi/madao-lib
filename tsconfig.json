@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    /* 基础配置 */
+    "target": "ES5",
+    "module": "ESNext",
+    "lib": [
+      "ES5",
+      "ES6",
+      "DOM",
+      "ESNext"
+    ],
+    "allowJs": true,
+    "checkJs": true,
+    "jsx": "react",
+    "removeComments": false,
+    "declaration": true,
+    "declarationDir": "./@types",
+    "sourceMap": true,
+    // 实验性选项
+    "experimentalDecorators": true, // 启用实验性的ES装饰器
+    "emitDecoratorMetadata": true, // 给源码里的装饰器声明加上设计类型元数据
+    /* 强类型检查配置 */
+    "strict": true,
+    "noImplicitAny": false,
+    // 其他选项
+    "forceConsistentCasingInFileNames": true, // 禁止对同一个文件的不一致的引用
+    "skipLibCheck": true, // 忽略所有的声明文件（ *.d.ts）的类型检查
+    "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块中默认导入
+    "noEmit": true, // 只想使用tsc的类型检查作为函数时（当其他工具（例如Babel实际编译）时）使用它
+    /* 模块分析配置 */
+    "baseUrl": ".",
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "jest",
+      "mocha"
+    ],
+    "typeRoots": [
+      "packages/**/@types/"
+    ]
+  },
+  "include": [
+    "lib",
+    "packages/**/lib/",
+    "*.ts+(|x)",
+    "**/*.ts+(|x)"
+  ],
+  "exclude": [
+    "node_modules",
+    "*.d.ts",
+    "*.spec.ts",
+    "dist",
+    "es"
+  ]
+}

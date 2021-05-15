@@ -1,0 +1,24 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current",
+          "esmodules": true
+        }
+      }
+    ],
+    "react",
+    "es2015-rollup",
+    "@babel/preset-typescript",
+    "@babel/typescript"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-typescript",
+    "external-helpers"
+  ],
+  "exclude": [
+    "node_modules/**"
+  ]
+}
