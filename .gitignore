@@ -1,8 +1,8 @@
 node_modules
 coverage
 yarn-error.log
+lerna-debug.log
 dist
 .docz
 .dist
 .storybook
-package-lock.json
