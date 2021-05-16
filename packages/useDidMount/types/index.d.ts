@@ -1,1 +1,2 @@
-export default function useDidMount(): void;
+declare const useDidMount: (fn: () => void) => void;
+export default useDidMount;

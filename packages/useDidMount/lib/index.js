@@ -1,7 +1,9 @@
 /* You can see me: https://github.com/tguzi */
-function useDidMount() {
-  console.log('useDidMount');
-}
+import { useEffect } from 'react';
+
+var useDidMount = function (fn) {
+  useEffect(fn, []);
+};
 
 export default useDidMount;
 //# sourceMappingURL=index.js.map

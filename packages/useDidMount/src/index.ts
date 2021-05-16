@@ -1,3 +1,7 @@
-export default function useDidMount() {
-  console.log('useDidMount')
+import { useEffect } from 'react'
+
+const useDidMount = (fn: () => void) => {
+  useEffect(fn, [])
 }
+
+export default useDidMount

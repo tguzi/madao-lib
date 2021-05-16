@@ -13,13 +13,14 @@
 3. 新建一个包
 <code>lerna create PackageName(自定义的包名)</code>
 
+
 4. 命令交互
     1. 为了跟不跟其他的包名冲突，在前面加上组织名字<code>@tgu/PackageName</code>
     2. 然后接下来就可以自定义了version/description等信息了。一般为了简单，都一路回车到底
 
 5. 修改入口文件
   
-    因为打包配置，每个包都需要有一个入口lib/index.ts，而lerna并没有提供，所以需要手动新建一个入口文件
+    手动创建 src/index.ts，构建工具会找到每个包下的src/index.ts作为打包/编译入口文件
 
 6. 单例测试文件
 
@@ -43,8 +44,7 @@
 
 
 ## 注意事项
-1. 新增包的时候，需要把包中package.json中"main"的值改成"dist/index.js"
-2. 发布前需要build
+1. 发布前需要build
 
 
 ## 分支规范
@@ -108,3 +108,5 @@
 - debug: 调试用
 
 ### 包介绍
+
+详见各个包的的readme.md
