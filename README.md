@@ -46,6 +46,38 @@
 ## 注意事项
 1. 发布前需要build
 
+## 项目结构
+
+```bash
+├── coverage                    jest 单测覆盖报告
+├── node_modules                依赖包
+├── packages                    monorepo包集合
+│   ├── __tests__                   单元测试用例
+│   ├── lib                         打包输出目录
+│   ├── src                         源代码
+│   ├── types                       typescript声明文件
+│   ├── package.json                包配置文件
+│   ├── README.md                   包描述文件
+├── plugin                      为了开发项目方便，自己开发的rollup插件
+├── types                       monorepo各个包的typescritp声明文件
+├── .babelrc                    babel 配置
+├── .commitlintrc.js            代码提交规范
+├── .editorconfig               编辑器配置
+├── .eslintignore               eslint忽略文件
+├── .eslintrc.js                eslint配置
+├── .gitignore                  忽略提交到git目录文件
+├── .npmignore                  忽略提交到npm文件
+├── .npmrc                      npm配置
+├── .prettierrc                 代码美化
+├── index.d.ts                  全局types声明文件
+├── jest.config.js              jest配置文件
+├── lerna.json                  lerna 配置文件
+├── package.json                依赖包及配置信息文件
+├── README.md                   描述文件
+├── rollup.config.js            rollup配置文件
+├── tsconfig.json               typescript 配置
+```
+
 
 ## 分支规范
 
