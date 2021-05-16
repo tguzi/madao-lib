@@ -31,7 +31,7 @@ const rollupConfig = {
     file: paths.output,
     format: 'es',
     sourcemap: true,
-    banner: '/* https://github.com/tguzi */',
+    banner: '/* You can see me: https://github.com/tguzi */',
   },
   watch: {
     include: 'src/**/*.ts',
@@ -60,11 +60,12 @@ const rollupConfig = {
         moduleDirectory: 'node_modules',
       },
     }),
-    lernaPlugin(), // 自定义lerna的插件
+    // 自定义lerna的插件 - 注意，此插件会修改packages/下每个包的package.json配置文件
+    lernaPlugin(),
+    // rollup编译typescript
     rollupTypescript({
-      clean: true,
+      clean: true, // 清除原先的声明
       check: true,
-      tsconfig: '../../tsconfig.json',
       useTsconfigDeclarationDir: true, // 使用tsconfig的输出路径，而不是rollup的output
     }),
     // 把声明文件copy到对应的目录

@@ -3,7 +3,7 @@ coverage
 yarn-error.log
 lerna-debug.log
 dist
-types
+/types
 .docz
 .dist
 .storybook

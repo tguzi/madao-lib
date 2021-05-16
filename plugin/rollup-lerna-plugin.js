@@ -1,45 +1,25 @@
-// "main": "dist/index.js",
-//   "module": "es/index.js",
-//     "directories": {
-//   "lib": "lib",
-//     "test": "__tests__"
-// },
-// "files": [
-//   "lib",
-//   "es",
-//   "dist",
-//   "@types"
-// ],
-//   "types": "@types/lib/index.d.ts",
-//     "publishConfig": {
-//   "registry": "http://xnpm.ximalaya.com/"
-// },
-
-
-// function writePackageJson(cbDataPackage, wholeVersion) {
-//   // 方法1： 重写package.json文件
-//   console.log('----------------------4. 开始修改package.json文件')
-//   cbDataPackage.version = wholeVersion
-//   fs.writeFile('./package.json', JSON.stringify(cbDataPackage), function (err) {
-//     if (err) console.error(err);
-//     console.log('----------------------修改package.json文件完毕，version修改为：', cbDataPackage.version)
-//   });
-// }
+import fs from 'fs'
 
 // 重写package.json文件
 function reWritePackageJson() {
-  return new Promise((resolve, reject) => {
-
-  })
+  const packagePath = `${process.env.PWD}/package.json`
+  const packageJson = require(packagePath)
+  packageJson.main = 'lib/index.js'
+  packageJson.types = 'types/index.d.ts'
+  packageJson.files = ['lib', 'types']
+  const err = fs.writeFileSync(packagePath, JSON.stringify(packageJson))
+  if (err) {
+    console.log('修改文件失败: ', err)
+  }
 }
 
 // lerna在rollup中的插件
-function rollupLernaPlugin(options = {}) {
+function rollupLernaPlugin() {
   return {
     name: "rollup-lerna-plugin",
     load() {
       // 修改对应的package.json配置
-      console.log('11', process.env.PWD)
+      reWritePackageJson()
     }
   }
 }

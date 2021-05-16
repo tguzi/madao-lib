@@ -1,6 +1,6 @@
 packages/**/dist/*
 packages/**/es/*
-packages/**/@types/*
-packages/**/@types/**
+packages/**/types/*
+packages/**/types/**
 packages/**/__tests__/*
 packages/**/__tests__/**

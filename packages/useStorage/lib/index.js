@@ -1,4 +1,4 @@
-/* https://github.com/tguzi */
+/* You can see me: https://github.com/tguzi */
 function useStorage() {
   console.log('useStorage');
 }
