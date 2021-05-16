@@ -1,11 +1,14 @@
 # `@tgu/useUnMount`
 
-> TODO: description
+> react hooks 组件卸载
 
 ## Usage
 
 ```
-const useUnMount = require('@tgu/useUnMount');
+import useUnMount from '@tgu/useUnMount'
 
-// TODO: DEMONSTRATE API
+useUnMount(() => {
+  // 初始化代码
+})
+
 ```

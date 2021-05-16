@@ -1,11 +1,14 @@
 # `@tgu/useDidMount`
 
-> TODO: description
+> react hooks 组件初始化
 
 ## Usage
 
 ```
-const useDidMount = require('@tgu/useDidMount');
+import useDidMount from '@tgu/useDidMount'
 
-// TODO: DEMONSTRATE API
+useDidMount(() => {
+  // 初始化代码
+})
+
 ```

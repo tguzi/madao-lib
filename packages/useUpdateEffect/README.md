@@ -1,11 +1,13 @@
 # `@tgu/useUpdateEffect`
 
-> TODO: description
+> react hooks 组件去初始化
 
 ## Usage
 
 ```
-const useUpdateEffect = require('@tgu/useUpdateEffect');
+import useUpdateEffect from '@tgu/useUpdateEffect'
 
-// TODO: DEMONSTRATE API
+useUpdateEffect(effect, [deps])
+
+
 ```
