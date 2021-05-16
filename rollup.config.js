@@ -19,6 +19,12 @@ const paths = {
 const dependencies = ({ devDependencies }) => Object.keys(devDependencies || {})
 const pkgdependencies = dependencies(pkg)
 
+// 当前lerna执行文件路径
+const PWD = process.env.PWD
+const pwdList = PWD.split('/')
+const packageName = pwdList[pwdList.length - 1]
+
+// rollup执行文件配置
 const rollupConfig = {
   input: paths.input, // 入口
   output: {
@@ -37,7 +43,6 @@ const rollupConfig = {
     del({
       targets: ['lib/*'],
     }),
-    lernaPlugin(), // 自定义lerna的插件
     json(), // 读取json插件
     // 验证导入的文件
     eslint({
@@ -55,18 +60,18 @@ const rollupConfig = {
         moduleDirectory: 'node_modules',
       },
     }),
+    lernaPlugin(), // 自定义lerna的插件
     rollupTypescript({
       clean: true,
       check: true,
-      tsconfig: './tsconfig.json',
+      tsconfig: '../../tsconfig.json',
       useTsconfigDeclarationDir: true, // 使用tsconfig的输出路径，而不是rollup的output
     }),
+    // 把声明文件copy到对应的目录
     copy({
       targets: [
-        { src: 'src/index.html', dest: 'dist/public' },
-        { src: ['assets/fonts/arial.woff', 'assets/fonts/arial.woff2'], dest: 'dist/public/fonts' },
-        { src: 'assets/images/**/*', dest: 'dist/public/images' }
-      ]
+        { src: `../../types/${packageName}/src/**/*`, dest: 'types' },
+      ],
     }),
     babel({
       runtimeHelpers: true,
@@ -76,9 +81,13 @@ const rollupConfig = {
       extensions: [
         '.js',
         '.ts',
+        '.tsx'
       ],
     }),
-    terser(), // 压缩代码
+    // 压缩代码
+    terser({
+      include: ['lib/**']
+    }),
   ],
 }
 

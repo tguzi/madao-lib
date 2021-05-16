@@ -36,7 +36,7 @@
     "noEmit": true, // 只想使用tsc的类型检查作为函数时（当其他工具（例如Babel实际编译）时）使用它
     // 模块解析
     "baseUrl": "./",
-    "outDir": "./dist",
+    "outDir": "./lib",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,

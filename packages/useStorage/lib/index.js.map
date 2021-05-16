@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":["../src/index.ts"],"sourcesContent":["export default function useStorage() {\n  console.log('useStorage')\n}\n"],"names":["console","log"],"mappings":"0BACEA,QAAQC,IAAI"}
+{"version":3,"file":"index.js","sources":["../src/index.ts"],"sourcesContent":["export default function useStorage() {\n  console.log('useStorage')\n}\n"],"names":["useStorage","console","log"],"mappings":";SAAwBA;AACtBC,EAAAA,OAAO,CAACC,GAAR,CAAY,YAAZ;AACD;;;;"}
