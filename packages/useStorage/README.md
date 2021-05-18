@@ -29,7 +29,7 @@ useStorage是前端缓存库 - 可以使用localstorage/sessionstorage,也可以
 
 ### Result
 | Property | Description | Type | Required |
-| ---- | ---- | ---- | ---- | ---- |
+| ---- | ---- | ---- | ---- |
 | state | 状态 | any | true |
 | updateState | 更新状态的方法 | function | false |
 | deleteState | 删除状态的方法 | function | false |
