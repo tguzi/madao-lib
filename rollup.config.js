@@ -7,6 +7,9 @@ import json from 'rollup-plugin-json'
 import commonjs from 'rollup-plugin-commonjs'
 import { eslint } from 'rollup-plugin-eslint'
 import { terser } from 'rollup-plugin-terser'
+import postcss from 'rollup-plugin-postcss'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
 import lernaPlugin from './plugin/rollup-lerna-plugin'
 import pkg from './package.json'
 
@@ -31,6 +34,9 @@ const rollupConfig = {
     file: paths.output,
     format: 'es',
     sourcemap: true,
+    plugins: [
+      terser()
+    ],
     banner: '/* You can see me: https://github.com/tguzi */',
   },
   watch: {
@@ -41,9 +47,17 @@ const rollupConfig = {
   // plugins 需要注意引用顺序
   plugins: [
     del({
-      targets: ['lib/*'],
+      targets: ['lib/*', 'types/*'],
     }),
     json(), // 读取json插件
+    postcss({
+      plugins: [
+        autoprefixer(), // css3属性加前缀
+        cssnano(), // css压缩
+      ],
+      modules: false,
+      extensions: ['.scss', '.css'],
+    }), // css预处理
     // 验证导入的文件
     eslint({
       throwOnError: true, // lint 结果有错误将会抛出异常
@@ -84,10 +98,6 @@ const rollupConfig = {
         '.ts',
         '.tsx'
       ],
-    }),
-    // 压缩代码
-    terser({
-      include: ['lib/**']
     }),
   ],
 }

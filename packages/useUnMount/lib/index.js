@@ -1,13 +1,2 @@
-/* You can see me: https://github.com/tguzi */
-import { useEffect } from 'react';
-
-var useUnMount = function (fn) {
-  useEffect(function () {
-    return function () {
-      fn();
-    };
-  }, [fn]);
-};
-
-export default useUnMount;
+import{useEffect as t}from"react";export default function(n){t((function(){return function(){n()}}),[n])}
 //# sourceMappingURL=index.js.map

@@ -1,0 +1,24 @@
+.tgu__component_toast {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 999;
+  .tgu__container {
+    width: auto;
+    max-width: 90%;
+    height: auto;
+    padding: 5px 10px;
+    line-height: 2;
+    color: #fff;
+    word-break: break-all;
+    background: rgba(0,0,0,0.7);
+    border-radius: 8px;
+  }
+}

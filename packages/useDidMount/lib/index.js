@@ -1,9 +1,2 @@
-/* You can see me: https://github.com/tguzi */
-import { useEffect } from 'react';
-
-var useDidMount = function (fn) {
-  useEffect(fn, []);
-};
-
-export default useDidMount;
+import{useEffect as t}from"react";export default function(o){t(o,[])}
 //# sourceMappingURL=index.js.map
