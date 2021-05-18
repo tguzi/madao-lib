@@ -7,7 +7,6 @@
     "publish": {
       "allowBranch": "master",
       "ignoreChanges": [
-        "*.json",
         "example/**",
         "test/**"
       ]
