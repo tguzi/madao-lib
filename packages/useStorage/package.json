@@ -1,1 +1,36 @@
-{"name":"@tgu/usestorage","version":"1.0.5","description":"react-hooks useStorage","keywords":["react","hooks","useStorage"],"author":"qingfu.wu <642935965@qq.com>","homepage":"https://github.com/tguzi/madao-lib.git/tree/master/packages/useStorage#readme","license":"ISC","main":"lib/index.js","directories":{"lib":"lib","test":"__tests__"},"files":["lib","types"],"publishConfig":{"access":"public"},"repository":{"type":"git","url":"git+https://github.com/tguzi/madao-lib.git"},"scripts":{"test":"echo \"Error: run tests from root\" && exit 1"},"bugs":{"url":"https://github.com/tguzi/madao-lib/issues"},"types":"types/index.d.ts"}
+{
+  "name": "@tgu/usestorage",
+  "version": "1.0.5",
+  "description": "react-hooks useStorage",
+  "keywords": [
+    "react",
+    "hooks",
+    "useStorage"
+  ],
+  "author": "qingfu.wu <642935965@qq.com>",
+  "homepage": "https://github.com/tguzi/madao-lib.git/tree/master/packages/useStorage",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tguzi/madao-lib.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/tguzi/madao-lib/issues"
+  },
+  "types": "types/index.d.ts"
+}
