@@ -13,11 +13,6 @@ import cssnano from 'cssnano'
 import lernaPlugin from './plugin/rollup-lerna-plugin'
 import pkg from './package.json'
 
-const paths = {
-  input: './src/index.ts',
-  output: './lib/index.js',
-}
-
 // 默认引入的包
 const dependencies = ({ devDependencies }) => Object.keys(devDependencies || {})
 const pkgdependencies = dependencies(pkg)
@@ -29,9 +24,9 @@ const packageName = pwdList[pwdList.length - 1]
 
 // rollup执行文件配置
 const rollupConfig = {
-  input: paths.input, // 入口
+  input: './src/index.ts', // 入口
   output: {
-    file: paths.output,
+    file: './lib/index.js',
     format: 'es',
     sourcemap: true,
     plugins: [

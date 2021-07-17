@@ -7,7 +7,7 @@ function reWritePackageJson() {
   packageJson.main = 'lib/index.js'
   packageJson.types = 'types/index.d.ts'
   packageJson.files = ['lib', 'types']
-  const err = fs.writeFileSync(packagePath, JSON.stringify(packageJson))
+  const err = fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2))
   if (err) {
     console.log('修改文件失败: ', err)
   }
