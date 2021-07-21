@@ -7,7 +7,8 @@ function reWritePackageJson() {
   packageJson.main = 'lib/index.js'
   packageJson.types = 'types/index.d.ts'
   packageJson.files = ['lib', 'types']
-  const err = fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2))
+  // 编辑器使用空格2格缩进，并且在最后一行添加空行
+  const err = fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2) + '\n')
   if (err) {
     console.log('修改文件失败: ', err)
   }

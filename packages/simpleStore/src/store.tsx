@@ -1,59 +1,68 @@
 import React, { FC, createContext, useReducer, useContext, useCallback, Component } from 'react'
 
+type Payload<D> = {
+  [P in keyof D]?: D[P];
+}
+
 // dispatch
-export type IDispatch = (type: string, ...args: any) => void
+export type IDispatch<D> = (type: string, payload: Payload<D>) => void
 
 // 状态库入参 泛型入参
-interface IStore<S, R, E> {
+interface IStore<S, D> {
   state: S
-  reducers: any
-  effects: any
+  reducers: IReducer<S, D>,
+  effects: IEffect<D>
 }
 
 // reducer方法
 interface IReducer<S, D> {
-  [key: string]: (state: S, data?: D) => S
+  [key: string]: (state: S, data?: Payload<D>) => S
 }
 
 // effects方法
 interface IEffect<D> {
-  [key: string]: (data?: D, dispatch?: IDispatch) => void
+  [key: string]: (data?: Payload<D>, dispatch?: IDispatch<D>) => void
 }
 
-interface IAction {
+interface IAction<D> {
   type: string // action名
-  [key: string]: any
+  payload: Payload<D>
 }
 
-interface IContextWidthDispatch {
-  dispatch: IDispatch
+interface IContextWidthDispatch<D> {
+  dispatch: IDispatch<D>
 }
 
 interface IContext<S> {
   [key: string]: S
 }
 
-const Store = <S, R, E>(namespace: string, props: IStore<S, R, E>) => {
+const Store = <S, D>(namespace: string, props: IStore<S, D>) => {
   const { state, reducers, effects } = props
 
-  const Context = createContext<IContext<S> & IContextWidthDispatch|null>(null)
+  const Context = createContext<IContext<S> | IContextWidthDispatch<D> | null>(null)
 
   const Provider: FC = ({ children }) => {
-    const [providerState, dispatch] = useReducer((state: S, action: IAction) => {
-      const { type, ...args } = action
+    const [providerState, dispatch] = useReducer((state: S, action: IAction<D>) => {
+      const { type, payload } = action
       if (reducers && reducers.hasOwnProperty(type)) {
         // 自己包装的reducers
-        return reducers[type](state, args)
+        return reducers[type](state, payload)
       }
       return state
     }, state)
 
+    // effect中的dispatch
+    const effectDispatch: IDispatch<D> = (type, payload) => {
+      dispatch({ type, payload })
+    }
+
     // 包装dispatch
-    const _dispatch = useCallback((type, args) => {
+    const _dispatch = useCallback<IDispatch<D>>((type, payload) => {
       if (effects && effects.hasOwnProperty(type)) {
-        effects[type].call(null, args, dispatch)
+        effects[type].call(null, payload, effectDispatch)
       } else if (reducers && reducers.hasOwnProperty(type)) {
-        dispatch({ type, ...args })
+        dispatch({ type, payload })
       }
     }, [])
 
