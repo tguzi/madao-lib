@@ -6,8 +6,9 @@ export type TPayload<D> = {
   [P in keyof D]?: D[P];
 }
 
+// action
 export interface IAction<D> {
-  type: string // action名
+  type: string
   payload?: TPayload<D>
 }
 
