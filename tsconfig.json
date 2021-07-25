@@ -44,8 +44,7 @@
     ]
   },
   "include": [
-    "lib",
-    "packages/**/lib/",
+    "packages/**/src/",
     "*.ts+(|x)",
     "**/*.ts+(|x)"
   ],
@@ -54,6 +53,7 @@
     "*.d.ts",
     "*.spec.ts",
     "dist",
+    "lib",
     "es"
   ]
 }

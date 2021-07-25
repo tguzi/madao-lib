@@ -35,7 +35,7 @@ import simpleStore from '@tgu/simpleStore'
  * Context  context 对象
  * _dispatch dispatch 方法
  */
-const { Provider, Context } = simpleStore('namespace', {
+const { Provider, Context, useSimpleContext } = simpleStore('namespace', {
   // 命名空间下的所有状态
   state: {
     testState: 'test'
@@ -65,7 +65,7 @@ const { Provider, Context } = simpleStore('namespace', {
   },
 })
 
-// 简单包装一下useContext
+// 简单包装了一下的useContext
 export function useSimpleContext(): [IState, IDispatch] {
   const context = useContext(Context)
   return [{ ...context.namespace }, context.dispatch]
