@@ -1,6 +1,6 @@
 {
   "name": "@tgu/simplestore",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "简易的状态管理",
   "keywords": [
     "react",
